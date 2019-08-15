@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录</title>
+<!--[if lt IE 9]>
+<script th:src="@{/js/html5shiv.js}" ></script>
+<![endif]-->
+<!-- CSS -->
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" th:href="@{/layui/css/layui.css}" media="all">
+<link rel="stylesheet" th:href="@{/font-awesome/4.2.0/css/font-awesome.min.css}" />
+<link th:href="@{/css/signin.css}" rel="stylesheet">
+<script type="text/javascript" th:src="@{/js/jquery.2.1.1.min.js}"></script>
+<script th:src="@{/js/Vue.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/locales/zh.js}"></script>
+<script type="text/javascript" th:src="@{/layui/layui.js}"></script>
+<script type="text/javascript" th:src="@{/pagejs/login.js}"></script>
+</head>
+<script type="text/javascript">
+	jQuery(function($) {
+			 $(document).on('click', '.sign-bottom a[data-target]', function(e) {
+				e.preventDefault();
+				var target = $(this).data('target');
+				$('.widget-box.visible').removeClass('visible');//hide others
+				$(target).addClass('visible');//show target
+			 });
+	});
+</script>
+<body>
+<div id="app">
+	<div id="signin" class="signin visible widget-box no-border">
+			<!-- 登录 -->
+		<div class="signin-head"><img th:src="@{/images/test/head_120.png}" alt="" class="img-circle"></div>
+			<form class="form-signin" role="form" action="#" th:action="@{/user/login}" th:object="${user}"  method="post">
+				<input type="text" class="form-control" th:field="*{userName}" placeholder="用户名" required autofocus />
+				<input type="password" class="form-control" th:field="*{password}" placeholder="密码" required />
+				<button class="btn btn-lg btn-warning btn-block" type="submit">登录</button>
+				<label class="checkbox">
+					<input type="checkbox" value="remember-me"> 记住我
+				</label>
+			</form> 
+			<div class="sign-bottom">
+				<div>
+					<a href="#" data-target="#forgot-box" class="forgot-password-link">
+						<i class="ace-icon fa fa-arrow-left"></i>
+						忘记密码
+					</a>
+				</div>
+
+				<div>
+					<a href="#" data-target="#register-box" class="user-signup-link">
+					注册
+					<i class="ace-icon fa fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	    <!-- 忘记密码 --> 
+		<div id="forgot-box" class="forgot-box widget-box no-border">
+			<div class="signin-head"><img th:src="@{/images/test/head_120.png}" alt="" class="img-circle"></div>
+				<form class="forgot-signin" role="form">
+					<input type="password" class="form-control" placeholder="请输入旧密码" required />
+				    <input type="password" class="form-control" placeholder="请输入新密码" required />
+				    <input type="password" class="form-control" placeholder="确认新密码" required />
+				    <button class="btn btn-lg btn-warning btn-block" type="submit">确定</button>
+			    </form>
+			    <div class="sign-bottom">
+					<div>
+						<a href="#" data-target="#signin" class="forgot-password-link">
+								返回登录
+						<i class="ace-icon fa fa-arrow-right"></i>
+					</a>
+					</div>
+				</div>
+		</div>
+		<!-- 注册 -->
+		<div id="register-box" class="register-box widget-box no-border">
+			<div class="signin-head"><img th:src="@{/images/test/head_120.png}" alt="" class="img-circle"></div>
+			<form class="register-signin" action="#" th:action="@{/user/register}" role="form"  th:object="${user}" method="post">
+				<input type="text" id="username" th:field="*{userName}" class="form-control" placeholder="请输入用户名" required />
+				<input type="text" id="nickname" th:field="*{nick}" class="form-control" placeholder="请输入昵称" required />
+				<input type="password"  th:field="*{password}" class="form-control" placeholder="请输入密码" required />
+				<input type="password" class="form-control" placeholder="请确认密码" required />
+				<input type="text" th:field="*{birthday}" id="birthdate" class="form-control" placeholder="请输入出生日期">
+                <select class="form-control" title="请选择性别" th:field="*{gender}" id="gender">
+                    <option value=1>男</option>
+                    <option value=2>女</option>
+                </select>
+				<div id="fileupload_div">
+					<input type="text" id="fileupload" th:field="*{imagePath}" class="form-control" placeholder="请上传图像"/>
+				</div>
+				<div id="fileupload_btn">
+					<button type="button" class="layui-btn" id="upload_img">
+                   <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+				</div>
+				<div class="resetbtn">
+					<button class="btn btn-lg btn-warning btn-block" type="button"><i class="ace-icon fa fa-refresh"></i>重置</button>
+				</div>
+				<div class="registerbtn">
+				    <button class="btn btn-lg btn-warning btn-block" type="submit">注册
+					<i class="ace-icon fa fa-arrow-right"></i>
+				    </button>
+			    </div>
+			</form>
+			<div class="sign-bottom">
+				<div>
+					<a href="#" data-target="#signin" class="forgot-password-link">
+						<i class="ace-icon fa fa-arrow-left"></i>
+								返回登录
+					</a>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+</body>
+</html>

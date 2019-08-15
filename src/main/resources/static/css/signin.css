@@ -1,0 +1,346 @@
+body {
+	background:url(../images/bg.jpg) #f8f6e9;
+}
+
+#signin {
+	width:477px;
+	height:450px;
+	background:url(../images/login_bg.png) no-repeat;
+	margin:0 auto;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-239px;
+	margin-left:-238px;
+}
+
+.widget-box {
+  visibility:hidden;
+  position:fixed;
+  z-index:-5;
+  border-bottom:none;
+  box-shadow:none;
+  padding:6px;
+  background-color:#394557;
+  -moz-transform:scale(0,1) 
+  translate(-150px);
+  -webkit-transform:scale(0,1) translate(-150px);
+  -o-transform:scale(0,1) translate(-150px);
+  -ms-transform:scale(0,1) translate(-150px);
+  transform:scale(0,1) translate(-150px)
+}
+
+.widget-box.visible {
+  visibility:visible;
+  position:relative;
+  z-index:auto;
+  -moz-transform:scale(1,1) translate(0);
+  -webkit-transform:scale(1,1) translate(0);
+  -o-transform:scale(1,1) translate(0);
+  -ms-transform:scale(1,1) translate(0);
+  transform:scale(1,1) translate(0);
+  transition:transform .3s ease;
+  -moz-transition:-moz-transform .3s ease;
+  -webkit-transition:-webkit-transform .3s ease;
+  -o-transition:-o-transform .2s ease
+}
+
+.signin-head {
+	margin:0 auto;
+	padding-top:30px;
+	width:120px;
+}
+.form-signin {
+  max-width: 330px;
+  padding: 43px 15px 15px 15px;
+  margin: 0 auto;
+}
+
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: 14px;
+  border-radius: 0;
+  background: url(../images/login_user_1.png) 0 0 #bdbdbd no-repeat;
+  padding-left:60px;
+  color:#FFFFFF;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-radius: 0;
+  background: url(../images/login_pas_1.png) 0 0 #bdbdbd no-repeat;
+  padding-left:60px;
+  color:#FFFFFF;
+}
+.form-signin button {
+  border-radius: 0;
+}
+
+/* 注册*/
+#register-box {
+  width:477px;
+  /*height:720px;*/
+  height:auto;
+  /*min-height: 720px;*/
+  background:url(../images/login_bg_1.png) no-repeat;
+  margin:0 auto;
+  position:absolute;
+  top:45%;
+  left:50%;
+  margin-top:-310px;
+  margin-left:-238px;
+}
+
+#register-box .signin-head {
+  margin: 0 auto;
+  padding-top: 20px;
+  width:120px;
+}
+
+.register-signin {
+  max-width: 400px;
+  padding: 26px 15px 15px 15px;
+  margin: 0 auto;
+}
+.register-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.register-signin .form-control:focus {
+  z-index: 2;
+}
+/*.register-signin input[type="text"] {
+  margin-bottom: 14px;
+  border-radius: 0;
+  background: url(../images/login_user.png) 0 0 #bdbdbd no-repeat;
+  padding-left:60px;
+  color:#FFFFFF;
+}*/
+#username {
+    width: 100%;
+    height:44px;
+  margin-bottom: 13px;
+  border-radius: 0;
+  background: url(../images/login_user_1.png) #bdbdbd no-repeat;
+  padding-left:60px;
+  color:#FFFFFF;
+}
+
+#nickname {
+    width: 100%;
+    height:44px;
+  margin-bottom : 13px;
+  border-radius : 0;
+  background: url(../images/login_user_1.png) #bdbdbd no-repeat;
+  padding-left : 60px;
+  color :#FFFFFF;
+}
+
+#email {
+    width: 100%;
+    height:44px;
+  margin-bottom: 13px;
+  border-radius: 0;
+  background: url(../images/email_1.png) 0 0 #bdbdbd no-repeat;
+  padding-left: 60px;
+  color: #FFFFFF;
+}
+
+#birthdate {
+  width: 100%;
+    height:44px;
+  margin-bottom: 13px;
+  border-radius: 0;
+  background: url(../images/bg_date.png) #bdbdbd no-repeat;
+  padding-left:60px;
+  color:#FFFFFF;
+}
+
+#fileupload {
+  width: 108%;
+  height: 44px;
+  margin-bottom: 15px;
+  border-radius: 0;
+  background: url(../images/upload.png) #bdbdbd no-repeat;
+  padding-left:60px;
+  color:#FFFFFF;
+}
+
+#gender {
+    width: 100%;
+    height:44px;
+    margin-bottom: 13px;
+    border-radius: 0;
+    background: url(../images/gender.png) #bdbdbd no-repeat;
+    padding-left: 60px;
+    color: #FFFFFF;
+}
+
+#fileupload_div {
+  display:inline-block ;
+  padding-right: 10px; 
+  width: 244px;
+}
+
+#fileupload_btn {
+  display:inline-block ;
+  padding-left: 9px; 
+  width: 120px;
+}
+
+.register-signin input[type="password"] {
+  margin-bottom: 13px;
+  border-radius: 0;
+  background: url(../images/login_pas_1.png) 0 0 #bdbdbd no-repeat;
+  padding-left:60px;
+  color:#FFFFFF;
+}
+.register-signin button {
+  border-radius: 0;
+}
+
+#register-box .sign-bottom>div:first-child {
+  margin-left:110px;
+  text-align: center;
+}
+
+.resetbtn .btn-warning {
+  background-color: #abbac3 !important;
+  border-color: #abbac3;
+}
+
+.resetbtn .btn-block {
+  width: 50%;
+}
+
+.resetbtn>button .ace-icon {
+  margin-right: 5px;
+}
+
+.registerbtn .btn-block {
+  width: 104%;
+}
+
+.registerbtn .btn-warning {
+   background-color: #87b87f !important;
+   border-color: #87b87f;
+}
+
+.register-signin .btn-lg {
+ /* padding: 11px 16px;*/
+  font-size: 15px;
+  line-height: 1.33;
+  height: 40px;
+}
+
+.register-signin>div {
+    display:inline-block ; 
+    width: 180px;
+}
+
+#forgot-box {
+  width:477px;
+  height:450px;
+  background:url(../images/login_bg.png) no-repeat;
+  margin:0 auto;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top:-239px;
+  margin-left:-238px;
+}
+
+.forgot-signin {
+  max-width: 330px;
+  padding: 43px 15px 15px 15px;
+  margin: 0 auto;
+}
+
+.forgot-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.forgot-signin .form-control:focus {
+  z-index: 2;
+}
+
+.forgot-signin input[type="password"] {
+  margin-top: -20px;
+  margin-bottom: 25px;
+  border-radius: 0;
+  background: url(../images/login_pas_1.png) 0 0 #bdbdbd no-repeat;
+  padding-left:60px;
+  color:#FFFFFF;
+}
+.forgot-signin button {
+  border-radius: 0;
+}
+
+#forgot-box .sign-bottom>div:first-child {
+  margin-left:115px;
+  text-align: center;
+}
+
+#forgot-box button {
+  border-radius: 0;
+}
+
+.sign-bottom>div:first-child {
+  float: left;
+  text-align: left;
+}
+.sign-bottom>div {
+  width: 50%;
+  display: inline-block;
+  padding: 9px 0 11px;
+}
+.sign-bottom>div>a {
+  font-size: 15px;
+  font-weight: 500;
+  text-shadow: 2px 0 2px rgba(0,0,0,.25);
+}
+.sign-bottom>div:first-child>a {
+   margin-left: 21px;
+}
+.forgot-password-link {
+  color: #FE9;
+}
+a {
+  text-decoration: none;
+}
+.sign-bottom>div:first-child+div {
+  float: right;
+  text-align: right;
+}
+.sign-bottom>div:first-child+div>a {
+   margin-right: 21px;
+}
+.user-signup-link {
+  color:#CF7;
+}

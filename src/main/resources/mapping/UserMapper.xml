@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fangyx.exo.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.fangyx.exo.pojo.UserPoJo">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="nick" jdbcType="VARCHAR" property="nick"/>
+        <result column="password" jdbcType="VARCHAR" property="passWord"/>
+        <result column="birthday" jdbcType="DATE" property="birthday"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="image_path" jdbcType="VARCHAR" property="imagePath"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <sql id="Base_Info_Column">
+        user_name,nick,password,birthday,gender,image_path,status
+    </sql>
+    <sql id="Base_Insert_Column">
+        <if test="user.userName != null and user.userName != ''">
+            #{user.userName, jdbcType=VARCHAR},
+        </if>
+        <if test="user.nick != null and user.nick != ''">
+            #{user.nick, jdbcType=VARCHAR},
+        </if>
+        <if test="user.password != null and user.password != ''">
+            #{user.password, jdbcType=VARCHAR},
+        </if>
+        <if test="user.birthday != null">
+            #{user.birthday, jdbcType=VARCHAR},
+        </if>
+        <if test="user.gender != null">
+            #{user.gender, jdbcType=INTEGER},
+        </if>
+        <if test="user.imagePath != null">
+            #{user.imagePath, jdbcType=VARCHAR},
+        </if>
+        <if test="user.status != null">
+            #{user.status, jdbcType=INTEGER}
+        </if>
+    </sql>
+    <!--根据ID查询-->
+    <select id="getUserById" resultType="com.fangyx.exo.pojo.UserPoJo">
+        select
+          <include refid="Base_Info_Column" />
+        from t_user where id = #{id}
+    </select>
+    <!--登录-->
+    <select id="login" resultType="com.fangyx.exo.pojo.UserPoJo">
+        select
+          id,user_name as userName,nick,password,birthday,gender,image_path as imagePath,status
+        from t_user
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <if test="userName != null || userName != '' ">
+               AND user_name = #{userName,jdbcType=VARCHAR}
+            </if>
+            <if test="password != null || password != '' ">
+               AND password = #{password,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </select>
+    <!--插入数据-->
+    <insert id="insert" parameterType="com.fangyx.exo.pojo.UserPoJo">
+        INSERT INTO t_user (
+        <include refid="Base_Info_Column"/> )
+        VALUES (
+          <include refid="Base_Insert_Column"/>
+        )
+    </insert>
+</mapper>
