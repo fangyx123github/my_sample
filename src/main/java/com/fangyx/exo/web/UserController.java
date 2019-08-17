@@ -49,7 +49,7 @@ public class UserController {
         String password = user.getPassword();
         UserPoJo userPoJo = userService.login(userName, password);
         if(ObjectUtils.isEmpty(userPoJo)){
-            return "用户名或密码错误";
+            return "用户名或密码错误的点点滴滴";
         }else{
             request.getSession().setAttribute("session_user",userPoJo);
             return "redirect:/user/main";
