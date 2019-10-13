@@ -31,7 +31,9 @@ public class InterceptorConfigurer implements WebMvcConfigurer {
         List<String> list = new ArrayList<String>();
         list.add("/user/login");
         list.add("/user/index");
-        // addPathPatterns 用于添加拦截规则
+        list.add("/user/register");
+        list.add("/user/wx/pushMessage");
+        // addPathPatterns 用于添加拦截规则+
         // excludePathPatterns 用户排除拦截,要连着写，要不然不生效
         registration.addPathPatterns("/user/**").excludePathPatterns(list);       //添加不拦截路径
     }

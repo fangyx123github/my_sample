@@ -1,9 +1,8 @@
-package com.fangyx.exo.mapper;
+package com.fangyx.exo.mapper.user;
 
-import com.fangyx.exo.pojo.UserPoJo;
+import com.fangyx.exo.pojo.user.UserPoJo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**

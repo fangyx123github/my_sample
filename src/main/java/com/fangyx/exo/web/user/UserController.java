@@ -1,7 +1,7 @@
-package com.fangyx.exo.web;
+package com.fangyx.exo.web.user;
 
-import com.fangyx.exo.pojo.UserPoJo;
-import com.fangyx.exo.service.UserService;
+import com.fangyx.exo.pojo.user.UserPoJo;
+import com.fangyx.exo.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +26,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     //跳转登录页
     @RequestMapping("/index")
     public String show(Model model){
@@ -34,13 +33,20 @@ public class UserController {
         return "pagehtml/login";
     }
 
+    @RequestMapping("/main")
+    public String  showIndex(){
+        return "pagehtml/index";
+    }
+
     @PostMapping("/register")
-    public String register(UserPoJo user) throws Exception {
+    public String register(UserPoJo user, HttpServletRequest request) throws Exception {
         int su = userService.save(user);
         if(su == 0 ){
             return "注册失败，请联系管理员";
+        }else{
+            login(user,request);
         }
-        return "pagehtml/index";
+        return "redirect:/user/main";
     }
 
     @RequestMapping("/login")
@@ -56,9 +62,5 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/main")
-    public String  showIndex(){
-        return "pagehtml/index";
-    }
 
 }

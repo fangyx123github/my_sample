@@ -1,6 +1,7 @@
 package com.fangyx.exo.interceptor;
 
-import com.fangyx.exo.pojo.UserPoJo;
+import com.fangyx.exo.pojo.user.UserPoJo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,8 +20,8 @@ import javax.servlet.http.HttpSession;
  * @Version: 1.0
  **/
 @Component
+@Slf4j
 public class LoginInterceptor implements HandlerInterceptor {
-
    /*
     * @author:Fangyx
     * @date:2019/7/31
@@ -36,6 +37,7 @@ public class LoginInterceptor implements HandlerInterceptor {
        HttpSession session = request.getSession();
        UserPoJo user = (UserPoJo) session.getAttribute("session_user");
        if(user == null){       //判断session中有没有user信息
+           log.info("=====请先登录");
            response.sendRedirect(request.getContextPath() +"/user/index");     //没有user信息的话进行路由重定向
            return false;
        }
@@ -51,7 +53,7 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) {
-        System.out.println("执行了postHandle方法");
+        log.info("执行了postHandle方法");
     }
     /*
      * @author:Fangyx
@@ -63,6 +65,6 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3) throws Exception {
-        System.out.println("执行到了afterCompletion方法");
+        log.info("执行到了afterCompletion方法");
     }
 }

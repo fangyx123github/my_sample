@@ -1,7 +1,7 @@
-package com.fangyx.exo.service;
+package com.fangyx.exo.service.user;
 
-import com.fangyx.exo.mapper.UserMapper;
-import com.fangyx.exo.pojo.UserPoJo;
+import com.fangyx.exo.mapper.user.UserMapper;
+import com.fangyx.exo.pojo.user.UserPoJo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

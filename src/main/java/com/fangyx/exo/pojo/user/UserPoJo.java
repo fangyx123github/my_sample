@@ -1,6 +1,7 @@
-package com.fangyx.exo.pojo;
+package com.fangyx.exo.pojo.user;
 
 import lombok.Data;
+
 /**
  * @Author: Fangyx
  * @Description:
